@@ -12,6 +12,7 @@ import { useState } from "react";
 
 const allProjects = [
   {
+    id: 1,
     title: "Build a Modern E-commerce Website with React",
     description: "Looking for an experienced React developer to build a full-featured e-commerce website with payment integration, user authentication, and admin dashboard. Must have experience with Stripe integration and modern UI frameworks.",
     budget: "$2,500 - $5,000",
@@ -23,6 +24,7 @@ const allProjects = [
     verified: true
   },
   {
+    id: 2,
     title: "Mobile App UI/UX Design for Fitness Platform",
     description: "Need a talented UI/UX designer to create modern, user-friendly designs for a fitness tracking mobile app. Should include user flow, wireframes, and high-fidelity mockups.",
     budget: "$1,200 - $2,000",
@@ -33,6 +35,7 @@ const allProjects = [
     verified: false
   },
   {
+    id: 3,
     title: "Python Data Analysis and Visualization",
     description: "Seeking a data analyst to analyze customer behavior data and create comprehensive reports with visualizations. Experience with pandas, matplotlib, and statistical analysis required.",
     budget: "$800 - $1,500",
@@ -44,6 +47,7 @@ const allProjects = [
     verified: true
   },
   {
+    id: 4,
     title: "WordPress Theme Customization",
     description: "Looking for a WordPress expert to customize an existing theme for a law firm website. Need to modify layouts, add custom fields, and ensure mobile responsiveness.",
     budget: "$500 - $1,000",
@@ -54,6 +58,7 @@ const allProjects = [
     verified: false
   },
   {
+    id: 5,
     title: "Content Marketing Strategy & Blog Writing",
     description: "Seeking a content marketing expert to develop a comprehensive strategy and write high-quality blog posts for a SaaS company in the fintech space.",
     budget: "$1,000 - $2,500",
@@ -65,6 +70,7 @@ const allProjects = [
     verified: true
   },
   {
+    id: 6,
     title: "Video Editing for YouTube Channel",
     description: "Need a skilled video editor to create engaging content for a tech YouTube channel. Must be proficient in After Effects and have experience with tech content.",
     budget: "$300 - $600",
@@ -217,8 +223,8 @@ const BrowseProjects = () => {
 
             {/* Projects Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-              {allProjects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
+              {allProjects.map((project) => (
+                <ProjectCard key={project.id} {...project} />
               ))}
             </div>
 

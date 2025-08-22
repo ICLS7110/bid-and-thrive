@@ -19,8 +19,13 @@ import {
   Share,
   Flag
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const ProjectDetail = () => {
+  const navigate = useNavigate();
+  const handleSubmitProposal = () => {
+    navigate("/post-project");
+  };
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -208,7 +213,7 @@ const ProjectDetail = () => {
                   />
                 </div>
 
-                <Button className="w-full" size="lg">
+                <Button className="w-full" size="lg" onClick={handleSubmitProposal}>
                   Submit Proposal
                 </Button>
 

@@ -4,7 +4,10 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { MapPin, Star, DollarSign, Briefcase } from "lucide-react";
 
+import { useNavigate } from "react-router-dom";
+
 interface FreelancerCardProps {
+  id?: string | number;
   name: string;
   title: string;
   avatar?: string;
@@ -19,6 +22,7 @@ interface FreelancerCardProps {
 }
 
 export const FreelancerCard = ({
+  id,
   name,
   title,
   avatar,
@@ -32,6 +36,13 @@ export const FreelancerCard = ({
   verified = false
 }: FreelancerCardProps) => {
   const initials = name.split(' ').map(n => n[0]).join('').toUpperCase();
+  const navigate = useNavigate();
+
+  const goToProfile = () => {
+    if (id !== undefined) {
+      navigate(`/freelancer/${id}`);
+    }
+  };
 
   return (
     <Card className="h-full hover:shadow-elevated transition-all duration-300 border border-border">
@@ -100,7 +111,7 @@ export const FreelancerCard = ({
       </CardContent>
 
       <CardFooter className="pt-4">
-        <Button className="w-full" variant="default">
+        <Button className="w-full" variant="default" onClick={goToProfile}>
           View Profile
         </Button>
       </CardFooter>

@@ -1,9 +1,12 @@
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Clock, DollarSign, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface ProjectCardProps {
+  id?: string | number;
   title: string;
   description: string;
   budget: string;
@@ -16,6 +19,7 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({
+  id,
   title,
   description,
   budget,
@@ -26,8 +30,20 @@ export const ProjectCard = ({
   proposalCount,
   verified = false
 }: ProjectCardProps) => {
+  const navigate = useNavigate();
+
+  // Handler for navigating to the detail page
+  const goToDetail = () => {
+    if (id !== undefined) {
+      navigate(`/project/${id}`);
+    }
+  };
+
   return (
-    <Card className="h-full hover:shadow-elevated transition-all duration-300 border border-border">
+    <Card
+      className="h-full hover:shadow-elevated transition-all duration-300 border border-border cursor-pointer"
+      onClick={goToDetail}
+    >
       <CardHeader>
         <div className="flex items-start justify-between">
           <CardTitle className="text-lg font-semibold line-clamp-2 pr-2">
@@ -43,7 +59,7 @@ export const ProjectCard = ({
           {description}
         </p>
       </CardHeader>
-      
+
       <CardContent className="space-y-4">
         {/* Budget */}
         <div className="flex items-center text-lg font-semibold text-foreground">
@@ -92,7 +108,14 @@ export const ProjectCard = ({
       </CardContent>
 
       <CardFooter>
-        <Button className="w-full" variant="default">
+        <Button
+          className="w-full"
+          variant="default"
+          onClick={e => {
+            e.stopPropagation();
+            goToDetail();
+          }}
+        >
           Submit Proposal
         </Button>
       </CardFooter>

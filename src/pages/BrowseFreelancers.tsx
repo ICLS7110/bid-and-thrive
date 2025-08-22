@@ -12,6 +12,7 @@ import { useState } from "react";
 
 const allFreelancers = [
   {
+    id: 1,
     name: "Sarah Chen",
     title: "Full-Stack Developer & UI/UX Designer",
     rating: 4.9,
@@ -24,6 +25,7 @@ const allFreelancers = [
     verified: true
   },
   {
+    id: 2,
     name: "Marcus Rodriguez",
     title: "Mobile App Developer",
     rating: 4.8,
@@ -36,6 +38,7 @@ const allFreelancers = [
     verified: true
   },
   {
+    id: 3,
     name: "Emma Thompson",
     title: "Data Scientist & ML Engineer",
     rating: 5.0,
@@ -48,6 +51,7 @@ const allFreelancers = [
     verified: false
   },
   {
+    id: 4,
     name: "Alex Kumar",
     title: "WordPress & PHP Developer",
     rating: 4.7,
@@ -60,6 +64,7 @@ const allFreelancers = [
     verified: true
   },
   {
+    id: 5,
     name: "Isabella Garcia",
     title: "Digital Marketing & SEO Expert",
     rating: 4.9,
@@ -72,6 +77,7 @@ const allFreelancers = [
     verified: true
   },
   {
+    id: 6,
     name: "James Wilson",
     title: "Video Editor & Motion Graphics",
     rating: 4.6,
@@ -242,8 +248,8 @@ const BrowseFreelancers = () => {
 
             {/* Freelancers Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-              {allFreelancers.map((freelancer, index) => (
-                <FreelancerCard key={index} {...freelancer} />
+              {allFreelancers.map((freelancer) => (
+                <FreelancerCard key={freelancer.id} {...freelancer} />
               ))}
             </div>
 
