@@ -4,6 +4,7 @@ import { ProjectCard } from "./ProjectCard";
 import { FreelancerCard } from "./FreelancerCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Filter, Search } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 // Sample data - in a real app, this would come from an API
 const sampleProjects = [
@@ -81,6 +82,7 @@ const sampleFreelancers = [
 ];
 
 export const MarketplaceSections = () => {
+  const navigate = useNavigate();
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="text-center mb-12">
@@ -120,7 +122,11 @@ export const MarketplaceSections = () => {
           </div>
 
           <div className="text-center mt-8">
-            <Button variant="outline" size="lg">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => navigate("/browse-projects")}
+            >
               View All Projects
             </Button>
           </div>
@@ -150,7 +156,11 @@ export const MarketplaceSections = () => {
           </div>
 
           <div className="text-center mt-8">
-            <Button variant="outline" size="lg">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => navigate("/browse-freelancers")}
+            >
               View All Freelancers
             </Button>
           </div>

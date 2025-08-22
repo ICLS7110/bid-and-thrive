@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Search, TrendingUp, Users, Briefcase } from "lucide-react";
 import heroImage from "@/assets/hero-marketplace.jpg";
+import { useNavigate } from "react-router-dom";
 
 export const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative bg-gradient-hero overflow-hidden">
       {/* Background Image with Overlay */}
@@ -27,11 +29,21 @@ export const HeroSection = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button variant="hero" size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button
+              variant="hero"
+              size="lg"
+              className="bg-white text-primary hover:bg-white/90"
+              onClick={() => navigate("/browse-freelancers")}
+            >
               <Briefcase className="h-5 w-5 mr-2" />
               Find Freelancers
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-white text-white hover:bg-white hover:text-primary"
+              onClick={() => navigate("/browse-projects")}
+            >
               <Search className="h-5 w-5 mr-2" />
               Browse Projects
             </Button>

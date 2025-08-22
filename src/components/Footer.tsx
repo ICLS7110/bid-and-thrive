@@ -2,8 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Twitter, Linkedin, Github, Mail } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export const Footer = () => {
+  const navigate = useNavigate();
   return (
     <footer className="bg-muted/30 border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -17,17 +19,17 @@ export const Footer = () => {
               The world's largest freelancing marketplace connecting businesses with top talent.
             </p>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="icon">
-                <Twitter className="h-4 w-4" />
+              <Button variant="ghost" size="icon" asChild>
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><Twitter className="h-4 w-4" /></a>
               </Button>
-              <Button variant="ghost" size="icon">
-                <Linkedin className="h-4 w-4" />
+              <Button variant="ghost" size="icon" asChild>
+                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><Linkedin className="h-4 w-4" /></a>
               </Button>
-              <Button variant="ghost" size="icon">
-                <Github className="h-4 w-4" />
+              <Button variant="ghost" size="icon" asChild>
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer"><Github className="h-4 w-4" /></a>
               </Button>
-              <Button variant="ghost" size="icon">
-                <Mail className="h-4 w-4" />
+              <Button variant="ghost" size="icon" asChild>
+                <a href="mailto:info@freelancehub.com"><Mail className="h-4 w-4" /></a>
               </Button>
             </div>
           </div>
@@ -36,10 +38,10 @@ export const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">For Freelancers</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Find Work</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Success Stories</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Resources</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Community</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" onClick={e => {e.preventDefault();navigate("/browse-projects")}}>Find Work</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" onClick={e => {e.preventDefault();navigate("/dashboard")}}>Success Stories</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" onClick={e => {e.preventDefault();navigate("/dashboard")}}>Resources</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" onClick={e => {e.preventDefault();navigate("/dashboard")}}>Community</a></li>
             </ul>
           </div>
 
@@ -47,10 +49,10 @@ export const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">For Clients</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Post a Project</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Find Talent</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Enterprise</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">How it Works</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" onClick={e => {e.preventDefault();navigate("/post-project")}}>Post a Project</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" onClick={e => {e.preventDefault();navigate("/browse-freelancers")}}>Find Talent</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" onClick={e => {e.preventDefault();navigate("/dashboard")}}>Enterprise</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors" onClick={e => {e.preventDefault();navigate("/dashboard")}}>How it Works</a></li>
             </ul>
           </div>
 
@@ -77,9 +79,9 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
           <div>© 2024 FreelanceHub. All rights reserved.</div>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-foreground transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-foreground transition-colors">Cookie Policy</a>
+            <a href="#" className="hover:text-foreground transition-colors" onClick={e => {e.preventDefault();navigate("/dashboard")}}>Privacy Policy</a>
+            <a href="#" className="hover:text-foreground transition-colors" onClick={e => {e.preventDefault();navigate("/dashboard")}}>Terms of Service</a>
+            <a href="#" className="hover:text-foreground transition-colors" onClick={e => {e.preventDefault();navigate("/dashboard")}}>Cookie Policy</a>
           </div>
         </div>
       </div>
